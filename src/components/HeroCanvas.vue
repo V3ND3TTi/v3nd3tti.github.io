@@ -60,10 +60,6 @@ onMounted(() => {
     const scale = 5 / size
     model.scale.setScalar(scale)
 
-    model.traverse((child) => {
-      if (child.isMesh) console.log('Mesh', child.name, child.position, child.rotation)
-    })
-
     scene.add(model)
   })
 
