@@ -34,7 +34,7 @@ function draw() {
     const x = i * 14;
     ctx.fillText(text, x, y * 14);
 
-    if (y * 14 > height && Math.random() > 0.99) {
+    if (y * 14 > height && Math.random() > 0.985) {
       drops[i] = 0;
     }
 
