@@ -53,16 +53,6 @@ onMounted(() => {
   loader.load('/models/vlogo.glb', (gltf) => {
     const model = gltf.scene
 
-    // Center model
-    const box = new THREE.Box3().setFromObject(model)
-    const center = box.getCenter(new THREE.Vector3())
-    model.position.sub(center)
-
-    // Scale to fit
-    const size = box.getSize(new THREE.Vector3()).length()
-    const scale = 5 / size
-    model.scale.setScalar(scale)
-
     scene.add(model)
 
     // Collect objects
