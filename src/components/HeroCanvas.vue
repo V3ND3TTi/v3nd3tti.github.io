@@ -116,32 +116,42 @@ onMounted(() => {
       })
     })
 
-    // -------------------
+    // ------------------
     // iDot bounce-in
-    // -------------------
+    // ------------------
     if (iDot) {
       iDot.userData.targetPos = iDot.position.clone()
       iDot.userData.targetRot = { x: 0, y: 0, z: 0 }
 
-      iDot.position.set(-10, iDot.userData.targetPos.y, iDot.userData.targetPos.z)
-      iDot.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2)
+      // Start off-screen to the right, small variance in Y/Z
+      iDot.position.set(
+        8, 
+        iDot.userData.targetPos.y + (Math.random() * 2 - 1),
+        iDot.userData.targetPos.z + (Math.random() * 2 - 1)
+      )
+      iDot.rotation.set(
+        Math.random() * 2,
+        Math.random() * 2,
+        Math.random() * 2
+      )
 
       gsap.to(iDot.position, {
         x: iDot.userData.targetPos.x,
-        duration: 1,
-        delay: 3.0,        // after letters
+        y: iDot.userData.targetPos.y,
+        z: iDot.userData.targetPos.z,
+        duration: 1.2,
+        delay: 1.5,           // comes after letters, but not too late
         ease: "bounce.out"
       })
 
       gsap.to(iDot.rotation, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: 1,
-        delay: 3.0,
+        x: 0, y: 0, z: 0,
+        duration: 1.2,
+        delay: 1.5,
         ease: "power2.out"
       })
     }
+
 
     // -------------------
     // Frame swoosh last
@@ -156,7 +166,7 @@ onMounted(() => {
       gsap.to(frame.position, {
         z: frame.userData.targetPos.z,
         duration: 1.5,
-        delay: 4.5,        // after iDot
+        delay: 3,        // after iDot
         ease: "power4.out",
         onComplete: () => {
           if (showUI) showUI.value = true // reveal overlay and socials
@@ -168,7 +178,7 @@ onMounted(() => {
         y: 0,
         z: 0,
         duration: 1.5,
-        delay: 4.5,
+        delay: 3,
         ease: "power2.out"
       })
     }
