@@ -141,7 +141,7 @@ onMounted(() => {
         z: iDot.userData.targetPos.z,
         duration: 1.2,
         delay: 1.5,           // comes after letters, but not too late
-        ease: "bounce.out"
+        ease: "back.out(2)"
       })
 
       gsap.to(iDot.rotation, {
@@ -153,36 +153,29 @@ onMounted(() => {
     }
 
 
-    // -------------------
-    // Frame swoosh last
-    // -------------------
+    // ------------------
+    // Frame fly-through
+    // ------------------
     if (frame) {
       frame.userData.targetPos = frame.position.clone()
       frame.userData.targetRot = { x: 0, y: 0, z: 0 }
 
-      frame.position.set(0, 0, 10) // start behind camera
-      frame.rotation.set(0, Math.PI, 0) // flipped
+      // Start just above / in front of the camera
+      frame.position.set(0, 5, 10) // y = 5 for "overhead", z = 10 is in front of camera
+      frame.rotation.set(0, 0, 0)  // no spin
 
       gsap.to(frame.position, {
+        x: frame.userData.targetPos.x,
+        y: frame.userData.targetPos.y,
         z: frame.userData.targetPos.z,
         duration: 1.5,
-        delay: 3,        // after iDot
-        ease: "power4.out",
+        delay: 3.0, // comes after iDot
+        ease: "power2.out",
         onComplete: () => {
-          if (showUI) showUI.value = true // reveal overlay and socials
+          showUI.value = true
         }
       })
-
-      gsap.to(frame.rotation, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: 1.5,
-        delay: 3,
-        ease: "power2.out"
-      })
     }
-
   })
 
   // Animate
