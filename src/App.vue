@@ -11,7 +11,7 @@
       :class="{ 'opacity-100': showUI }"
     >
       <p class="text-md md:text-2xl lg:text-4xl font-light tracking-tighter lg:tracking-wider">
-        .NET C# DEV ◾ WEB DEV ◾ GAME DEV
+        .NET C# DEV 👨‍💻 WEB DEV 🎮 GAME DEV
       </p>
     </div>
 
