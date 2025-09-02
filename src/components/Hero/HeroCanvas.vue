@@ -4,14 +4,13 @@
 
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue'
-import { inject } from 'vue'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import gsap from 'gsap'
 
 const canvas = ref(null)
-const showUI = inject('showUI')
+const emit = defineEmits(["ready"])
 let renderer, camera, scene, controls, animationId
 
 onMounted(() => {
@@ -175,7 +174,7 @@ onMounted(() => {
         delay: 3.0, // comes after iDot
         ease: "power2.out",
         onComplete: () => {
-          showUI.value = true
+          emit("ready")
         }
       })
     }
