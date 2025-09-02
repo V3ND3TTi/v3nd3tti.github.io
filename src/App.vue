@@ -1,12 +1,10 @@
 <template>
-  <div class="relative w-full h-screen">
-    <MatrixRain />
+  <div>
     <Hero />
   </div>
 </template>
 
 <script setup>
-import MatrixRain from './components/MatrixRain.vue'
 import Hero from './components/Hero/Hero.vue';
 </script>
 
