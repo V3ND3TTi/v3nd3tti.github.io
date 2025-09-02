@@ -17,7 +17,7 @@ let renderer, camera, scene, controls, animationId
 onMounted(() => {
   // Scene
   scene = new THREE.Scene()
-  scene.background = new THREE.Color(0x000000)
+  scene.background = null
 
   // Camera
   camera = new THREE.PerspectiveCamera(
@@ -32,9 +32,12 @@ onMounted(() => {
   // Renderer
   renderer = new THREE.WebGLRenderer({
     canvas: canvas.value,
-    antialias: true
+    antialias: true,
+    alpha: true, // allow transparency
   })
   renderer.setSize(window.innerWidth, window.innerHeight)
+  renderer.setPixelRatio(window.devicePixelRatio)
+  renderer.setClearColor(0x000000, 0) // fully transparent
 
   // Controls (remove later if you want it fixed)
   controls = new OrbitControls(camera, renderer.domElement)
@@ -237,7 +240,7 @@ function onWindowResize() {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
+  z-index: 5;
   display: block;
 }
 </style>

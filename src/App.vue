@@ -1,5 +1,7 @@
 <template>
   <div class="relative w-full h-screen">
+    <!-- MatrixRain background -->
+     <MatrixRain />
     <!-- Three.js background -->
     <HeroCanvas />
 
@@ -31,6 +33,7 @@
 <script setup>
 import { ref, provide } from 'vue'
 import HeroCanvas from './components/HeroCanvas.vue'
+import MatrixRain from './components/MatrixRain.vue'
 
 const showUI = ref(false)
 provide("showUI", showUI) // makes it available to children
