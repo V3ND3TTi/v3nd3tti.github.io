@@ -4,12 +4,14 @@
 
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { inject } from 'vue'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import gsap from 'gsap'
 
 const canvas = ref(null)
+const showUI = inject('showUI')
 let renderer, camera, scene, controls, animationId
 
 onMounted(() => {
@@ -62,6 +64,125 @@ onMounted(() => {
     model.scale.setScalar(scale)
 
     scene.add(model)
+
+    // Collect objects
+    const letters = []
+    let iDot = null
+    let frame = null
+
+    model.traverse((child) => {
+      if (child.isMesh) {
+        if (child.name.toLowerCase().includes("idot")) {
+          iDot = child
+        } else if (child.name.toLowerCase().includes("frame")) {
+          frame = child
+        } else {
+          letters.push(child)
+        }
+      }
+    })
+
+    // -------------------
+    // Letters fly-in
+    // -------------------
+    letters.forEach((l, i) => {
+      l.userData.targetPos = l.position.clone()
+      l.userData.targetRot = { x: 0, y: 0, z: 0 }
+
+      // Random scattered start
+      l.position.set(
+        (Math.random() - 0.5) * 10,
+        (Math.random() - 0.5) * 6,
+        (Math.random() - 0.5) * 10
+      )
+      l.rotation.set(
+        Math.random() * Math.PI * 4,
+        Math.random() * Math.PI * 4,
+        Math.random() * Math.PI * 4
+      )
+
+      // Random duration/delay for organic motion
+      const travelTime = 0.8 + Math.random() * 1.0   // 0.8–1.8s
+      const delay = Math.random() * 0.3              // offset up to 0.3s
+
+      // Animate position
+      gsap.to(l.position, {
+        x: l.userData.targetPos.x,
+        y: l.userData.targetPos.y,
+        z: l.userData.targetPos.z,
+        duration: travelTime,
+        delay,
+        ease: "power3.out"
+      })
+
+      // Animate rotation spin-down
+      gsap.to(l.rotation, {
+        x: l.userData.targetRot.x,
+        y: l.userData.targetRot.y,
+        z: l.userData.targetRot.z,
+        duration: travelTime,
+        delay,
+        ease: "power3.out"
+      })
+    })
+
+    // -------------------
+    // iDot bounce-in
+    // -------------------
+    if (iDot) {
+      iDot.userData.targetPos = iDot.position.clone()
+      iDot.userData.targetRot = { x: 0, y: 0, z: 0 }
+
+      iDot.position.set(-10, iDot.userData.targetPos.y, iDot.userData.targetPos.z)
+      iDot.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2)
+
+      gsap.to(iDot.position, {
+        x: iDot.userData.targetPos.x,
+        duration: 1,
+        delay: 3.0,        // after letters
+        ease: "bounce.out"
+      })
+
+      gsap.to(iDot.rotation, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1,
+        delay: 3.0,
+        ease: "power2.out"
+      })
+    }
+
+    // -------------------
+    // Frame swoosh last
+    // -------------------
+    if (frame) {
+      frame.userData.targetPos = frame.position.clone()
+      frame.userData.targetRot = { x: 0, y: 0, z: 0 }
+
+      frame.position.set(0, 0, 10) // start behind camera
+      frame.rotation.set(0, Math.PI, 0) // flipped
+
+      gsap.to(frame.position, {
+        z: frame.userData.targetPos.z,
+        duration: 1.5,
+        delay: 4.5,        // after iDot
+        ease: "power4.out",
+        onComplete: () => {
+          if (showUI) showUI.value = true // reveal overlay and socials
+        }
+      })
+
+      gsap.to(frame.rotation, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 1.5,
+        delay: 4.5,
+        ease: "power2.out"
+      })
+    }
+
   })
 
   // Animate
