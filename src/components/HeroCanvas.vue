@@ -204,9 +204,33 @@ onBeforeUnmount(() => {
 })
 
 function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight
+  const width = window.innerWidth
+  const height = window.innerHeight
+
+  camera.aspect = width / height
   camera.updateProjectionMatrix()
-  renderer.setSize(window.innerWidth, window.innerHeight)
+  renderer.setSize(width, height)
+
+  if (model) {
+    const box = new THREE.Box3().setFromObject(model)
+    const size = new THREE.Vector3()
+    box.getSize(size)
+
+    // Get the max dimension (width or height of model)
+    const maxDim = Math.max(size.x, size.y, size.z)
+
+    let scale
+
+    if (width < 768) {
+      // Mobile: prioritize fitting to width
+      scale = (width / maxDim) * 0.4
+    } else {
+      // Desktop: fit to smaller of width/height
+      scale = (Math.min(width, height) / maxDim) * 0.4
+    }
+
+    model.scale.setScalar(scale)
+  }
 }
 </script>
 
