@@ -220,6 +220,9 @@ function onWindowResize() {
     }
 
     model.scale.setScalar(scale)
+
+    const center = box.getCenter(new THREE.Vector3())
+    model.position.sub(center)
   }
 }
 </script>
