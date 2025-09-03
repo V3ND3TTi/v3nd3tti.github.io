@@ -2,7 +2,7 @@
   <div>
     <Hero v-if="showHero" @exit="navigate"/>
 
-    <main v-else class="relative z-10">
+    <main v-else class="relative z-10 bg-black">
       <AboutMe id="about" />
       <Projects id="projects" />
       <Contact id="contact" />
@@ -23,7 +23,7 @@ function navigate(targetId) {
   showHero.value = false
   setTimeout(() => {
     document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
-  }, 100) // tiny delay so Hero is gone
+  }, 50) // tiny delay so Hero is gone
 }
 </script>
 
