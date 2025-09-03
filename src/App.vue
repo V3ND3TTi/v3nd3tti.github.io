@@ -3,7 +3,7 @@
     <Transition name="fade" mode="in-out">
       <Hero v-if="showHero" @exit="navigate" key="hero" />
       <div v-else key="main"> 
-        <Nav @goHome="showHero = true" />
+        <Nav @goHome="goHome"></Nav>
         <main class="relative z-10">
           <AboutMe id="about" />
           <Projects id="projects" />
@@ -29,6 +29,10 @@ function navigate(targetId) {
   setTimeout(() => {
     document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
   }, 700) // match fade duration
+}
+
+function goHome() {
+  showHero.value = true
 }
 </script>
 
