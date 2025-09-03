@@ -3,14 +3,14 @@
   <nav v-show="showUI"
        class="absolute top-0 right-0 flex space-x-6 text-sm lg:text-lg font-semibold p-6 text-white z-10 transition-opacity duration-1000"
        :class="{ 'opacity-100': showUI, 'opacity-0': !showUI }">
-    <a href="#about" class="hover:text-blue-400 transition">About</a>
-    <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-    <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+    <button @click="$emit('exit', 'about')" class="hover:text-blue-400 transition">About</button>
+    <button @click ="$emit('exit', 'projects')" class="hover:text-blue-400 transition">Projects</button>
+    <button @click ="$emit('exit', 'contacts')"class="hover:text-blue-400 transition">Contact</button>
   </nav>
 
   <!-- 🔹 Tagline -->
   <div v-show="showUI"
-       class="absolute bottom-16 md:bottom-32 lg:bottom-48 w-full flex flex-col items-center text-center text-white z-10 transition-opacity duration-1000 pointer-events-none"
+       class="absolute bottom-32 md:bottom-48 lg:bottom-64 w-full flex flex-col items-center text-center text-white z-10 transition-opacity duration-1000 pointer-events-none"
        :class="{ 'opacity-100': showUI, 'opacity-0': !showUI }">
     <p class="text-md md:text-2xl lg:text-4xl font-light tracking-tighter lg:tracking-wider">
       .NET C# DEV 👨‍💻 WEB DEV 🎮 GAME DEV

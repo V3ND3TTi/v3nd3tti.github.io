@@ -1,8 +1,8 @@
 <template>
-    <section id="hero" class="relative w-full h-screen overflow-hidden">
+    <section id="hero" class="fixed inset-0 w-full h-screen overflow-hidden z-50 bg-black">
         <MatrixRain />
         <HeroCanvas @ready="showUI = true"/>
-        <HeroOverlay :showUI="showUI"/>
+        <HeroOverlay :showUI="showUI"@exit="startExit"/>
     </section>
 </template>
 

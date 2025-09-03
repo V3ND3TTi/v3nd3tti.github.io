@@ -23,10 +23,9 @@ onMounted(() => {
     45,
     window.innerWidth / window.innerHeight,
     0.1,
-    1000
+    100
   )
-  camera.position.set(0, 0, 5)
-  camera.lookAt(0,0,0)
+  updateCameraPosition()
 
   // Renderer
   renderer = new THREE.WebGLRenderer({
@@ -190,6 +189,7 @@ onMounted(() => {
 
   // Resize
   window.addEventListener('resize', onWindowResize)
+  window.addEventListener('resize', updateCameraPosition)
 })
 
 onBeforeUnmount(() => {
@@ -197,6 +197,15 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', onWindowResize)
   renderer.dispose()
 })
+
+function updateCameraPosition() {
+  if (window.innerWidth < 768) {
+    camera.position.set(0, 0, 12) // mobile
+  } else {
+    camera.position.set(0, 0, 5) // desktop
+  }
+  camera.lookAt(0, 0, 0)
+}
 
 function onWindowResize() {
   const width = window.innerWidth

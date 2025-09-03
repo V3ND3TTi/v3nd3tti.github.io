@@ -1,13 +1,22 @@
 <template>
   <div>
-    <Hero />
+    <Hero v-if="showHero" @exit="navigate"/>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import Hero from './components/Hero/Hero.vue';
-</script>
 
+const showHero = ref(true)
+
+function navigate(targetId) {
+  showHero.value = false
+  setTimeout(() => {
+    document.getElementById(targetId)?.scroollIntoView({ behavior: 'smooth' })
+  }, 100) // tiny delay so Hero is gone
+}
+</script>
 
 <style scoped>
 /* wipe default margins for a true edge-to-edge canvas */
