@@ -12,6 +12,7 @@ import gsap from 'gsap'
 const canvas = ref(null)
 const emit = defineEmits(["ready"])
 let renderer, camera, scene, controls, animationId
+let model = null
 
 onMounted(() => {
   // Scene
@@ -52,7 +53,7 @@ onMounted(() => {
   // Load GLB
   const loader = new GLTFLoader()
   loader.load('/models/vlogo.glb', (gltf) => {
-    const model = gltf.scene
+    model = gltf.scene
 
     scene.add(model)
 
@@ -208,6 +209,8 @@ function updateCameraPosition() {
 }
 
 function onWindowResize() {
+  if (!model) return 
+
   const width = window.innerWidth
   const height = window.innerHeight
 

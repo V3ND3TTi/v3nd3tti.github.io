@@ -5,7 +5,7 @@
        :class="{ 'opacity-100': showUI, 'opacity-0': !showUI }">
     <button @click="$emit('exit', 'about')" class="hover:text-blue-400 transition">About</button>
     <button @click ="$emit('exit', 'projects')" class="hover:text-blue-400 transition">Projects</button>
-    <button @click ="$emit('exit', 'contacts')"class="hover:text-blue-400 transition">Contact</button>
+    <button @click ="$emit('exit', 'contact')" class="hover:text-blue-400 transition">Contact</button>
   </nav>
 
   <!-- 🔹 Tagline -->
@@ -33,6 +33,8 @@
 </template>
 
 <script setup>
+const emit = defineEmits(['exit'])
+
 defineProps({
   showUI: {
     type: Boolean,
