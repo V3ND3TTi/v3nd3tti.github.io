@@ -2,11 +2,14 @@
   <div>
     <Transition name="fade" mode="in-out">
       <Hero v-if="showHero" @exit="navigate" key="hero" />
-      <main v-else class="relative z-10" key="main">
-        <AboutMe id="about" />
-        <Projects id="projects" />
-        <Contact id="contact" />
-      </main>
+      <div v-else key="main"> 
+        <Nav @goHome="showHero = true" />
+        <main class="relative z-10">
+          <AboutMe id="about" />
+          <Projects id="projects" />
+          <Contact id="contact" />
+        </main>
+      </div>
     </Transition>
   </div>
 </template>
@@ -17,6 +20,7 @@ import Hero from './components/Hero/Hero.vue'
 import AboutMe from './components/AboutMe.vue'
 import Projects from './components/Projects.vue'
 import Contact from './components/Contact.vue'
+import Nav from './components/Nav.vue'
 
 const showHero = ref(true)
 
