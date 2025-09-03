@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Transition name="fade" mode="out-in">
+    <Transition name="fade" mode="in-out">
       <Hero v-if="showHero" @exit="navigate" key="hero" />
       <main v-else class="relative z-10" key="main">
         <AboutMe id="about" />
@@ -33,6 +33,8 @@ function navigate(targetId) {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.7s ease;
+  position: absolute; /* let them overlap */
+  width: 100%;
 }
 
 .fade-enter-from,
