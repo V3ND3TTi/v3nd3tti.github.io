@@ -1,12 +1,13 @@
 <template>
   <div>
-    <Hero v-if="showHero" @exit="navigate"/>
-
-    <main v-else class="relative z-10 bg-black">
-      <AboutMe id="about" />
-      <Projects id="projects" />
-      <Contact id="contact" />
-    </main>
+    <Transition name="fade" mode="out-in">
+      <Hero v-if="showHero" @exit="navigate" key="hero" />
+      <main v-else class="relative z-10" key="main">
+        <AboutMe id="about" />
+        <Projects id="projects" />
+        <Contact id="contact" />
+      </main>
+    </Transition>
   </div>
 </template>
 
@@ -23,14 +24,19 @@ function navigate(targetId) {
   showHero.value = false
   setTimeout(() => {
     document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
-  }, 50) // tiny delay so Hero is gone
+  }, 700) // match fade duration
 }
 </script>
 
-<style scoped>
-/* wipe default margins for a true edge-to-edge canvas */
-html, body, #app {
-  height: 100%;
-  margin: 0;
+<style>
+/* Crossfade transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.7s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
