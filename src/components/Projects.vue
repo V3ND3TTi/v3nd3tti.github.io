@@ -2,7 +2,7 @@
   <section id="projects" class="max-w-5xl mx-auto mt-12 scroll-mt-14">
      <h2 class="text-4xl font-bold text-white mx-4">Projects</h2>
     <p class="mt-2 text-lg text-gray-400 text-justify mx-4">
-      A showcase of my work in .NET, Web, Blockchain & Game Development.
+      A showcase of my work in .NET, Web, & Game Development.
     </p>
     <div class="border-b border-gray-700 mt-4 mb-4"></div>
  
