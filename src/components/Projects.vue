@@ -1,5 +1,174 @@
 <template>
-  <section id="projects" class="min-h-screen flex items-center justify-center bg-gray-800 text-white">
-    <h2 class="text-4xl font-bold text-blue-400">Projects: Coming Soon!</h2>
+  <section id="projects" class="max-w-5xl mx-auto mt-12 scroll-mt-14">
+     <h2 class="text-4xl font-bold text-white mx-4">Projects</h2>
+    <p class="mt-2 text-lg text-gray-400 text-justify mx-4">
+      A showcase of my work in .NET, Web, Blockchain & Game Development.
+    </p>
+    <div class="border-b border-gray-700 mt-4 mb-4"></div>
+ 
+    <!-- Preview Scroller -->
+    <div ref="scroller" class="flex space-x-4 overflow-x-auto scrollbar-hide scroll-smooth px-10 pb-4">
+      <div 
+        v-for="(project, i) in projects" 
+        :key="i"
+        @click="active = i"
+        class="flex-shrink-0 w-64 h-48 rounded-lg cursor-pointer overflow-hidden border-2 transition"
+        :class="active === i ? 'border-blue-500' : 'border-gray-700'"
+      >
+        <img :src="project.image" class="w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <!-- Active Project Showcase -->
+    <transition name="fade">
+      <div v-if="projects[active]" class="mt-4 mx-4">
+        <img 
+          v-if="!projects[active].video"
+          :src="projects[active].image" 
+          class="w-full max-h-[500px] object-cover rounded-xl shadow-lg"
+        />
+        <iframe 
+          v-else
+          :src="projects[active].video"
+          class="w-full h-[400px] rounded-xl shadow-lg"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+
+        <h2 class="mt-4 text-3xl font-bold">{{ projects[active].title }}</h2>
+        <p class="mt-1 text-gray-400 italic">{{ projects[active].stack }}</p>
+        <p class="mt-4 whitespace-pre-line text-justify">{{ projects[active].description }}</p>
+        <div class="mt-4 flex gap-4 mb-20">
+          <a 
+            v-if="projects[active].github" 
+            :href="projects[active].github" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white font-medium"
+          >
+            GitHub
+          </a>
+          <a 
+            v-if="projects[active].demo" 
+            :href="projects[active].demo" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-medium"
+          >
+            Live Demo
+          </a>
+        </div>
+      </div>
+    </transition>
   </section>
 </template>
+
+<script setup>
+import { NumberController } from "three/examples/jsm/libs/lil-gui.module.min.js";
+import { ref } from "vue"
+
+const active = ref(0)
+
+const projects = [
+  {
+    title: "Flagship Project",
+    stack: "Vue, ThreeJS, Tailwind, Node",
+    description: "Of course my flagship project is this very project you're visiting right meow. I spent 6 hours in Blender learning the software for the 3D logo on the landing page. If you weren't aware you can interact with the logo: spin it like crazy, move it, resize it. And the Matrix effects, well that's just paying respects to one of my favorite movie franchises. I'll keep updating as I add more projects. Thanks for stopping by!",
+    image: "/images/v3nd3ttiSS.png",
+    github: "https://github.com/V3ND3TTi/v3nd3tti.github.io",
+    demo: "https://v3ndetti.github.io",
+    video: null
+  },
+  {
+    title: "Unity Demo",
+    stack: "Unity, C#, WebGL Build",
+    description: "Interactive Unity prototype showcasing multiple scenes from the Unity Essentials pathway",
+    image: "/images/UnityEssentialsSS.png",
+    github: "https://github.com/V3ND3TTi/Unity-Essentials",
+    demo: "https://play.unity.com/en/games/e69c4cde-4ffe-4b4e-91b2-e449cc0f31e9/webbuild",
+    video: null
+  },
+  {
+    title: "Modern Web aka PRESTIGE WORLDWIDE",
+    stack: "C#, .NET, Blazor Server, SQLite",
+    description: ".NET Blazor Server w/ASP.NET API. SQLite for the DB. Fun project but I'm too cheap to host it for a live demo so here's a video.",
+    image: "/images/PrestigeWorldwideSS.png",
+    github: "https://github.com/V3ND3TTi/ModernWeb",
+    demo: null,
+    video: "/videos/ModernWeb.mp4"
+
+  },
+  {
+    title: "KoinLab",
+    stack: "NextJS (React), TypeScript, Tailwind",
+    description: "This is the latest version of KoinLab, one of my personal sites. Mostly just practice to consume CoinGecko's API for live prices. I planned on launching my blockchain project through KoinLab but found out there was already a CoinLab. Not that I'm ever going to launch my crypto project.",
+    image: "/images/koinlabSS.png",
+    github: "https://github.com/V3ND3TTi/KoinLab-Nextjs",
+    demo: "https://koinlab.net",
+    video: null,
+  },
+  {
+    title: "KoinLab.NET",
+    stack: ".NET Blazor WASM, Azure",
+    description: "My site koinlab.net, except hosted on Azure now since I replaced it with the NextJS version.",
+    image: "/images/koinlabNetSS.png",
+    github: "https://github.com/V3ND3TTi/KoinLab.NET",
+    demo: "https://agreeable-field-06a85f61e.4.azurestaticapps.net",
+    video: null,
+  },
+  {
+    title: "CW Collections V2",
+    stack: "Astro",
+    description: "Remake of the original using Astro. I though Astro was the greatest thing since sliced bread (at the time, early 2023).",
+    image: "/images/cwastroSS.png",
+    github: "https://github.com/V3ND3TTi/cw-astro",
+    demo: "https://cw-collections.netlify.app",
+    video: null,
+  },
+  {
+    title: "Cindy Wu Collections",
+    stack: "Vanilla!! HTML, CSS & JQuery 😂",
+    description: "I spent so much time on this site, it's kinda wild thinking back to this. I ended up making many different versions of this site to practice new stacks but this was the very first back in 2022. Can't believe it's been 3 years already.",
+    image: "/images/cwcSS.png",
+    github: "https://github.com/V3ND3TTi/CWsite",
+    demo: "https://v3nd3tti.github.io/CWsite",
+    video: null,
+  },
+  {
+    title: "vendetti.DEV",
+    stack: "Astro",
+    description: "One of the many iterations my personal site has taken on over the years. First, there was dv3.dev and then vendetti.dev. Believe this was built in early 2023.",
+    image: "images/dotdevSS.png",
+    github: "https://github.com/V3ND3TTi/dv3-astro",
+    demo: "https://v1dotdev.netlify.app",
+    video: null,
+  },
+  {
+    title: "DV3",
+    stack: "HTML, CSS & JQuery",
+    image: "/images/dv3SS.png",
+    description: "Hilarious looking back and realizing I used the same JQuery across almost all my sites in 2022 & 2023 🤣. I was so proud of DV3.dev at the time though. The typewriter on the landing page was next level for me.",
+    github: "https://github.com/V3ND3TTi/DV3",
+    demo: "https://v3nd3tti.github.io/DV3",
+    video: null,
+  },
+  {
+    title: "The most adorable penguin EVER!",
+    stack: "Pure CSS",
+    image: "/images/fccpenguinSS.png",
+    description: "In 2021, I was learning Python and blockchain (and not learning either very well). In 2022, came my run at web development. First some courses on Udemy, and then freeCodeCamp where I created this little guy. It's been quite the journey!",
+    github: null,
+    demo: "https://codepen.io/V3ND3TTi/pen/BamQgNN",
+    video: null,
+  },
+]
+</script>
+
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+</style>

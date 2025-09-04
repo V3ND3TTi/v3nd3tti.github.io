@@ -1,10 +1,10 @@
 <template>
-  <section id="about" class="min-h-screen bg-gray-900 text-white px-6 py-16">
+  <section id="about" class="min-h-screen text-white px-6 py-16">
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
       <!-- Profile + About stays as-is -->
       <div class="lg:col-span-1 flex flex-col items-center lg:items-start space-y-6">
         <img
-          src="/profile.jpg"
+          src="/images/profile.jpg"
           alt="Devon Vendetti"
           class="rounded-xl shadow-lg max-w-xs"
         />
@@ -49,7 +49,7 @@
       </div>
 
       <div ref="edu" class="bg-gray-800 rounded-xl shadow-lg p-6 opacity-0 translate-y-6 transition-all duration-700">
-        <h3 class="text-3xl font-bold text-blue-300 mb-6">Education</h3>
+        <h3 class="text-3xl font-bold text-blue-300">Education</h3>
         <ul class="space-y-4 text-gray-300">
           <li v-for="edu in education" :key="edu.institution">
             <span class="font-semibold">{{ edu.institution }}</span> — {{ edu.details }}
