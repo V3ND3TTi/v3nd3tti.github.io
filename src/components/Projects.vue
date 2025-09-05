@@ -117,6 +117,15 @@ const projects = [
     video: null,
   },
   {
+    title: "Pong",
+    stack: "HTML, CSS, JavaScript",
+    description: "Want to play the worst game of pong ever?! This is where you can do it! I should eventually go back and tweak this to improve the gameplay. Considering the stack it was built with (HTML5 Canvas) it's slightly impressive.",
+    image: "/images/pongSS.png",
+    github: "https://github.com/V3ND3TTi/HTML5-Canvas-Pong",
+    demo: "https://v3nd3tti.github.io/HTML5-Canvas-Pong",
+    video: null,
+  },
+  {
     title: "CW Collections V2",
     stack: "Astro",
     description: "Remake of the original using Astro. I though Astro was the greatest thing since sliced bread (at the time, early 2023).",
