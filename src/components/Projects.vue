@@ -80,7 +80,16 @@ const projects = [
     video: null
   },
   {
-    title: "Unity Demo",
+    title: "Unity: Inept Guard",
+    stack: "Unity, C# WebGL Build",
+    description: "Beginner project to get familiar with setting up Unity scenes, game management, and scripting. I might return to this to replace the generic capsules with real character models but for now it's time to move on to more advance Unity topics.",
+    image: "/images/IneptGuard.png",
+    github: "https://github.com/V3ND3TTi/Unity.Inept-Guard",
+    demo: "https://play.unity.com/en/games/0e45439f-3240-4a8d-abfd-faeb35e7153f/inept-guard",
+    video: null,
+  },
+  {
+    title: "Unity Essentials Scenes",
     stack: "Unity, C#, WebGL Build",
     description: "Interactive Unity prototype showcasing multiple scenes from the Unity Essentials pathway",
     image: "/images/UnityEssentialsSS.png",
