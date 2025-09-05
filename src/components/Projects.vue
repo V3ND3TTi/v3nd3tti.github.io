@@ -82,7 +82,7 @@ const projects = [
   {
     title: "Unity: Inept Guard",
     stack: "Unity, C# WebGL Build",
-    description: "Beginner project to get familiar with setting up Unity scenes, game management, and scripting. I might return to this to replace the generic capsules with real character models but for now it's time to move on to more advance Unity topics.",
+    description: "Beginner project to get familiar with setting up Unity scenes, game management, and scripting. I might return to this to replace the generic capsules with real character models but for now it's time to move on to more advance Unity topics. NOTE: You won't be able to play this on mobile.",
     image: "/images/IneptGuard.png",
     github: "https://github.com/V3ND3TTi/Unity.Inept-Guard",
     demo: "https://play.unity.com/en/games/0e45439f-3240-4a8d-abfd-faeb35e7153f/inept-guard",
@@ -91,7 +91,7 @@ const projects = [
   {
     title: "Unity Essentials Scenes",
     stack: "Unity, C#, WebGL Build",
-    description: "Interactive Unity prototype showcasing multiple scenes from the Unity Essentials pathway",
+    description: "Interactive Unity prototype showcasing multiple scenes from the Unity Essentials pathway. NOTE: You won't be able to play this on mobile.",
     image: "/images/UnityEssentialsSS.png",
     github: "https://github.com/V3ND3TTi/Unity-Essentials",
     demo: "https://play.unity.com/en/games/e69c4cde-4ffe-4b4e-91b2-e449cc0f31e9/webbuild",
