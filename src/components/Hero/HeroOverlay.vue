@@ -21,11 +21,11 @@
   <div v-show="showUI"
        class="absolute bottom-6 w-full flex justify-center space-x-8 md:space-x-12 text-white z-10 transition-opacity duration-1000"
        :class="{ 'opacity-100': showUI, 'opacity-0': !showUI }">
-    <a href="https://github.com/v3nd3tti" target="_blank"
+    <a href="https://github.com/v3nd3tti" target="_blank" aria-label="Link to GitHub"
        class="text-2xl md:text-6xl hover:text-blue-400 hover:scale-110 transition-transform duration-200">
       <i class="fa-brands fa-github"></i>
     </a>
-    <a href="https://linkedin.com/in/v3nd3tti" target="_blank"
+    <a href="https://linkedin.com/in/v3nd3tti" target="_blank" aria-label="Link to LinkedIn"
        class="text-2xl md:text-6xl hover:text-blue-400 hover:scale-110 transition-transform duration-200">
       <i class="fa-brands fa-linkedin"></i>
     </a>
