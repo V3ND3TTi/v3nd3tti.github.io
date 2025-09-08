@@ -72,7 +72,7 @@ const skills = [
 ]
 
 const certifications = [
-  'Microsoft Applied Skills: ASP.NET Core Web App',
+  'Microsoft Applied Skills: ASP.NET Core Web Api',
   'Microsoft Applied Skills: C# Classes & Methods',
   'Foundational C# with Microsoft – freeCodeCamp',
   'Microsoft Azure Fundamentals (AZ-900)',
