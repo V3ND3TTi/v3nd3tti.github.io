@@ -78,7 +78,7 @@ const projects = [
     github: "https://github.com/V3ND3TTi/v3nd3tti.github.io",
     demo: "https://v3ndetti.github.io",
     video: null
-  },
+  },  
   {
     title: "Unity: Inept Guard",
     stack: "Unity, C# WebGL Build",
@@ -87,6 +87,15 @@ const projects = [
     github: "https://github.com/V3ND3TTi/Unity.Inept-Guard",
     demo: "https://play.unity.com/en/games/0e45439f-3240-4a8d-abfd-faeb35e7153f/inept-guard",
     video: null,
+  },
+  {
+  title: "V's Pizzeria",
+  stack: "Svelte Front End, ASP.NET Minimal API, SQLite DB",
+  description: "Another project I'm too cheap to host so here's a short video demo. I expanded upon a Microsoft Learn lesson about building minimal APIs by expanding it with an interactive front end to consume the API. All CRUD operations are stored in SQLite DB.",
+  image: "/images/PizzaStoreSS.png",
+  github: "https://github.com/V3ND3TTi/pizza-store",
+  demo: null,
+  video: "/videos/PizzaStore.mp4",
   },
   {
     title: "Unity Essentials Scenes",
@@ -104,8 +113,7 @@ const projects = [
     image: "/images/PrestigeWorldwideSS.png",
     github: "https://github.com/V3ND3TTi/ModernWeb",
     demo: null,
-    video: "/videos/ModernWeb.mp4"
-
+    video: "/videos/ModernWeb.mp4",
   },
   {
     title: "KoinLab",
