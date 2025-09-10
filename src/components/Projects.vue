@@ -78,7 +78,16 @@ const projects = [
     github: "https://github.com/V3ND3TTi/v3nd3tti.github.io",
     demo: "https://v3ndetti.github.io",
     video: null
-  },  
+  },
+  {
+    title: "Blazing Pizza",
+    stack: "Full Stack w/.NET, ASP.NET Core API (controller), Blazor Server, SQLite DB",
+    description: "Capstone project from learning the full .NET web development stack. Built this out to just shy of adding authorization and a payment provider. Maybe I'll add those features in the future but for now I'll be happy with what I've got.",
+    image: "/images/BlazingPizzaSS.png",
+    github: "https://github.com/V3ND3TTi/BlazingPizza",
+    demo: null,
+    video: "/videos/BlazingPizza.mp4",
+  }, 
   {
     title: "Unity: Inept Guard",
     stack: "Unity, C# WebGL Build",
@@ -87,6 +96,15 @@ const projects = [
     github: "https://github.com/V3ND3TTi/Unity.Inept-Guard",
     demo: "https://play.unity.com/en/games/0e45439f-3240-4a8d-abfd-faeb35e7153f/inept-guard",
     video: null,
+  },
+  {
+    title: "Connect Four",
+    stack: ".NET Blazor Server",
+    description: "Connect four game built entirely with Blazor Server.",
+    image: "/images/ConnectFourSS.png",
+    github: "https://github.com/V3ND3TTi/ConnectFour",
+    demo: null,
+    video: "/videos/ConnectFour.mp4",
   },
   {
   title: "V's Pizzeria",
