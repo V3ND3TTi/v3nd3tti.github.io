@@ -87,7 +87,16 @@ const projects = [
     github: "https://github.com/V3ND3TTi/BlazingPizza",
     demo: null,
     video: "/videos/BlazingPizza.mp4",
-  }, 
+  },
+  {
+    title: "Unity 6.2 Demo",
+    stack: "Unity, C#, WebGL Build",
+    description: "Fun little tutorial where you take control of a robot, and run around this small scene collecting stars. I'm horrible with MnK so I'm glad controllers are supported out of the box.",
+    image: "/images/UnityTutorialSS.png",
+    github: "https://github.com/V3ND3TTi/Unity6-Demo",
+    demo: "https://play.unity.com/en/games/1cc25514-8524-4ec5-8552-17e7765654dc/unity-6-demo",
+    video: null,
+  },
   {
     title: "Unity: Inept Guard",
     stack: "Unity, C# WebGL Build",
