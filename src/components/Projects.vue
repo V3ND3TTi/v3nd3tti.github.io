@@ -89,6 +89,15 @@ const projects = [
     video: "/videos/BlazingPizza.mp4",
   },
   {
+    title: "Construction Runner",
+    stack: "Unity, C# WebGL Build",
+    description: "Construction Runner is a 3D side scroller where you sprint through an endless worksite filled with danger. Press space to jump over obstacles. Collisions mean instant game over.",
+    image: "/images/ConstructionRunner.png",
+    github: "https://github.com/V3ND3TTi/Unity6-GameEffects",
+    demo: "https://play.unity.com/en/games/fca42332-f14a-4db9-9b08-ec6987578a0a/construction-runner",
+    video: null,
+  },
+  {
     title: "Unity 6.2 Demo",
     stack: "Unity, C#, WebGL Build",
     description: "Fun little tutorial where you take control of a robot, and run around this small scene collecting stars. I'm horrible with MnK so I'm glad controllers are supported out of the box.",
