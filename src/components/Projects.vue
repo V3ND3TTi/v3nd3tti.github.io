@@ -89,6 +89,15 @@ const projects = [
     video: "/videos/BlazingPizza.mp4",
   },
   {
+    title: "Skyplate Rumble",
+    stack: "Unity, C# WebGL Build",
+    description: "Survive on the floating platform as long as you can. If you fall once, it's GAME OVER! Collect the power-ups to gain an advantage. Control camera rotation with left/right, player control with up/down.",
+    image: "/images/SkyplateRumbleSS.png",
+    github: "https://github.com/V3ND3TTi/Unity6-GameMechanics",
+    demo: "https://play.unity.com/en/games/39124ee9-6236-4080-9abe-38d346a322e2/skyplate-rumble",
+    video: null,
+  },
+  {
     title: "Construction Runner",
     stack: "Unity, C# WebGL Build",
     description: "Construction Runner is a 3D side scroller where you sprint through an endless worksite filled with danger. Press space to jump over obstacles. Collisions mean instant game over.",
