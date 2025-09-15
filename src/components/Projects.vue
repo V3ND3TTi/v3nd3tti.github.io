@@ -98,6 +98,15 @@ const projects = [
     video: null,
   },
   {
+    title: "Brick Breaker",
+    stack: "Unity, C#, WebGL Build",
+    description: "Brick breaker game with the main purpose of persisting best score details across game sessions.",
+    image: "/images/BBSS.png",
+    github: "https://github.com/V3ND3TTi/Unity6-DataPersistence",
+    demo: "https://play.unity.com/en/games/d33619d3-dfa6-4601-a41e-0de2ec15af55/brick-breaker",
+    video: null,
+  },
+  {
     title: "Not Fruit Ninja",
     stack: "Unity, C# WebGL Build",
     description: "Fruit Ninja clone teaching user interface (title menu, score, restart button). Avoid the skulls, they subtract 10 points, everything else adds 5 points. Enjoy!",
