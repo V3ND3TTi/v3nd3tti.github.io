@@ -184,7 +184,7 @@ const projects = [
     description: "This is the latest version of KoinLab, one of my personal sites. Mostly just practice to consume CoinGecko's API for live prices. I planned on launching my blockchain project through KoinLab but found out there was already a CoinLab. Not that I'm ever going to launch my crypto project.",
     image: "/images/koinlabSS.png",
     github: "https://github.com/V3ND3TTi/KoinLab-Nextjs",
-    demo: "https://koinlab.net",
+    demo: "https://koinlab.vercel.app",
     video: null,
   },
   {
